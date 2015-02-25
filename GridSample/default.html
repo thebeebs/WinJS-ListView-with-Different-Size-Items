@@ -16,21 +16,21 @@
 </head>
 <body>
     <div id="landscapeTemplate" data-win-control="WinJS.Binding.Template">
-        <div style="display:block; width: 300px; height:200px; background-color:#4cff00">
+        <div style="display:block; background-color:#4cff00; width:290px; height:190px">
             <div data-win-bind="textContent:name"></div>
             <div data-win-bind="textContent:type"></div>
         </div>
     </div>
 
     <div id="squareTemplate" data-win-control="WinJS.Binding.Template">
-        <div style="display:block; width: 200px; height:200px; background-color:#ffd800">
+        <div style="display:block; background-color:#ffd800; width:190px; height:190px">
             <div data-win-bind="textContent:name"></div>
             <div data-win-bind="textContent:type"></div>
         </div>
     </div>
 
     <div id="portraitTemplate" data-win-control="WinJS.Binding.Template">
-        <div style="display:block; width: 150px; height:200px; background-color:#ff0000">
+        <div style="display:block; background-color:#ff0000; width:140px; height:190px">
             <div data-win-bind="textContent:name"></div>
             <div data-win-bind="textContent:type"></div>
         </div>
@@ -46,8 +46,13 @@
         <div data-win-control="WinJS.UI.HubSection" data-win-options="{header:groupTwoName}">
             <div>
                 <div id="booksListView" data-win-control="WinJS.UI.ListView"
-                     data-win-options="{itemDataSource:sectionTwoDataSource.dataSource
-                         }" style="height: 420px;"></div>
+                     data-win-options="{itemDataSource:sectionTwoDataSource.dataSource,
+                     layout: {
+             groupInfo: groupInfo,
+             itemInfo: itemInfo,
+             type: WinJS.UI.CellSpanningLayout}
+
+                         }" style="height: 550px;"></div>
             </div>
         </div>
     </div>
