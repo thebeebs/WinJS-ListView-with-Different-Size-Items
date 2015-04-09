@@ -63,7 +63,6 @@
     <Content Include="images\storelogo.scale-100.png" />
     <Content Include="js\default.js" />
     <Content Include="css\default.css" />
-    <Content Include="sampleData.js" />
     <None Include="GridSample_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
