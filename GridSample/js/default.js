@@ -17,6 +17,79 @@
                 // Restore application state here.
             }
 
+            var booksList = new WinJS.Binding.List([{
+                name: 'a',
+                type: 'landscape'
+            }, {
+                name: 'c',
+                type: 'square'
+            }, {
+                name: 'b',
+                type: 'portrait'
+            }, {
+                name: 'b',
+                type: 'portrait'
+            }, {
+                name: 'c',
+                type: 'square'
+            }, {
+                name: 'b',
+                type: 'portrait'
+            }, {
+                name: 'c',
+                type: 'square'
+            }, {
+                name: 'c',
+                type: 'square'
+            }, {
+                name: 'c',
+                type: 'square'
+            }]);
+
+            var groupInfo = WinJS.Utilities.markSupportedForProcessing(function groupInfo() {
+                return {
+                    enableCellSpanning: true,
+                    cellWidth: 40,
+                    cellHeight: 190
+                };
+            });
+
+            var itemInfo = WinJS.Utilities.markSupportedForProcessing(function itemInfo(itemIndex) {
+                var size = { width: 140, height: 190 };
+
+                // Get the item from the data source
+                var item = booksList.getAt(itemIndex);
+                if (item) {
+
+                    // Get the size based on the item type
+                    switch (item.type) {
+                        case "landscape":
+                            size = { width: 290, height: 190 };
+                            break;
+
+                        case "square":
+                            size = { width: 190, height: 190 };
+                            break;
+
+                        case "portrait":
+                            size = { width: 140, height: 190 };
+                            break;
+
+                        default:
+                    }
+                }
+                return size;
+            });
+
+
+
+            // Expose the List object to the rest of the app.
+            WinJS.Namespace.define("BC.HomeScreenData", {
+                books: booksList,
+                groupInfo: groupInfo,
+                itemInfo: itemInfo
+            });
+
             WinJS.UI.processAll();
 
             //Not sure why but If I don't call proccess all with the specific DIV then

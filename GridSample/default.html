@@ -12,7 +12,7 @@
     <!-- GridSample references -->
     <link href="/css/default.css" rel="stylesheet" />
     <script src="/js/default.js"></script>
-    <script src="sampleData.js" type="text/javascript"></script>
+    <!--<script src="sampleData.js" type="text/javascript"></script>-->
 </head>
 <body>
     <div id="landscapeTemplate" data-win-control="WinJS.Binding.Template">
@@ -46,13 +46,14 @@
         <div data-win-control="WinJS.UI.HubSection" data-win-options="{header:groupTwoName}">
             <div>
                 <div id="booksListView" data-win-control="WinJS.UI.ListView"
-                     data-win-options="{itemDataSource:sectionTwoDataSource.dataSource,
-                     layout: {
-             groupInfo: groupInfo,
-             itemInfo: itemInfo,
-             type: WinJS.UI.CellSpanningLayout}
-
-                         }" style="height: 550px;"></div>
+                     data-win-options="{
+                        itemDataSource: BC.HomeScreenData.books.dataSource,
+                         layout: {
+                             groupInfo: BC.HomeScreenData.groupInfo,
+                             itemInfo: BC.HomeScreenData.itemInfo,
+                             type: WinJS.UI.CellSpanningLayout
+                         }
+                     }" style="height: 550px;"></div>
             </div>
         </div>
     </div>
